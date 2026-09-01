@@ -26,10 +26,11 @@ namespace ZombieParty.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Ajouter à la BD
                 _baseDonnees.ZombieTypes.Add(zombieType);
+                TempData["Success"] = $"{zombieType.TypeName} zombie type added";
                 return this.RedirectToAction("Index");
             }
+
 
             return this.View(zombieType);
         }
